@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read Between the Waves: A Guide to Literary Analysis</title>
+<meta name="description" content="A guide to literary analysis using the Arlong Park arc of One Piece, with a clear definition, key elements, a Literary Piece Example, and a practice quiz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ocean-deep: #0d2b45;
+    --ocean-mid: #1f5673;
+    --straw-red: #b3202a;
+    --sunlit: #f0b429;
+    --parchment: #f7ecd6;
+    --card: #fbf4e4;
+    --ink: #1c1a17;
+    --focus: #f0b429;
+    --good: #2d6a4f;
+    --radius: 6px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --parchment: #13243a;
+      --card: #1b3050;
+      --ink: #f3ead8;
+      --ocean-deep: #f7ecd6;
+      --ocean-mid: #9cc7dc;
+      --straw-red: #f07a7f;
+      --sunlit: #f0b429;
+      --focus: #f0b429;
+      --good: #8fd4ad;
+    }
+    .btn { background: var(--sunlit); border-color: var(--sunlit); color: #13243a; }
+    .btn:hover { background: var(--parchment); color: var(--ink); }
+    .btn-ghost:hover { color: var(--parchment); }
+    .wave-band path:first-child { fill: #9cc7dc; }
+    .wave-band path:last-child { fill: #0d2b45; }
+    .bubble { color: #13243a; }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--ink);
+    background-color: var(--parchment);
+    background-image: radial-gradient(color-mix(in srgb, var(--ocean-deep) 7%, transparent) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  h1, h2, h3, .brand, .nav-links a {
+    font-family: "Alfa Slab One", Georgia, serif;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ocean-deep);
+  }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin: 0 0 0.5rem; }
+  h2 { font-size: clamp(1.7rem, 3.5vw, 2.3rem); margin: 0 0 1rem; }
+  h3 { font-size: 1.2rem; margin: 1.25rem 0 0.4rem; }
+  p { max-width: 68ch; margin: 0 0 1rem; }
+  a { color: var(--straw-red); }
+
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .skip-link {
+    position: absolute; left: -9999px; top: 0;
+    background: var(--ocean-deep); color: var(--parchment);
+    padding: 0.6rem 1rem; z-index: 100;
+  }
+  .skip-link:focus { left: 1rem; top: 1rem; }
+
+  /* Header: Log Pose navigation */
+  header.site-header {
+    background: var(--ocean-deep);
+    color: var(--parchment);
+    position: sticky; top: 0; z-index: 50;
+    border-bottom: 4px solid var(--straw-red);
+  }
+  .header-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0.9rem 1.25rem;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;
+  }
+  .brand { color: var(--sunlit); font-size: 1.15rem; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+  .log-pose {
+    width: 26px; height: 26px; border-radius: 50%;
+    border: 3px solid var(--sunlit); position: relative; flex-shrink: 0;
+  }
+  .log-pose::after {
+    content: ""; position: absolute; left: 50%; top: 50%;
+    width: 3px; height: 9px; background: var(--straw-red);
+    transform: translate(-50%, -100%);
+    transform-origin: 50% 100%;
+  }
+  .nav-links { list-style: none; display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; margin: 0; padding: 0; }
+  .nav-links a {
+    color: var(--parchment); font-family: "Source Serif 4", Georgia, serif; font-weight: 600;
+    font-size: 0.95rem; text-decoration: none; padding: 0.25rem 0.1rem;
+    border-bottom: 2px solid transparent;
+  }
+  .nav-links a:hover { border-bottom-color: var(--sunlit); }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+  section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--ocean-deep) 18%, transparent);
+  }
+  .section-tag {
+    display: inline-block; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em;
+    color: var(--ocean-deep); background: var(--sunlit);
+    padding: 0.15rem 0.6rem; border-radius: 3px; margin-bottom: 0.6rem;
+  }
+
+  /* Hero: wanted poster */
+  .hero { padding: 3rem 0 3.5rem; }
+  .poster {
+    background: color-mix(in srgb, var(--parchment) 88%, #fff);
+    border: 3px solid var(--ink);
+    border-radius: var(--radius);
+    padding: clamp(1.5rem, 4vw, 3rem);
+    box-shadow: 8px 8px 0 var(--ocean-deep);
+    display: grid; gap: 1.5rem;
+  }
+  @media (min-width: 760px) { .poster { grid-template-columns: 1.6fr 1fr; align-items: center; } }
+  .poster .lede { font-size: 1.2rem; }
+  .poster-side { border-left: 3px solid var(--straw-red); padding-left: 1.25rem; margin: 0; }
+  .poster-side dt { font-family: "Alfa Slab One", Georgia, serif; color: var(--straw-red); font-size: 0.95rem; }
+  .poster-side dd { margin: 0 0 0.9rem; }
+  .wave-band { display: block; width: 100%; height: 56px; margin-top: 2rem; }
+
+  .btn, .btn-ghost {
+    display: inline-block; font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: 1rem;
+    padding: 0.7rem 1.3rem; border-radius: var(--radius); text-decoration: none; cursor: pointer;
+  }
+  .btn { background: var(--straw-red); color: #fff; border: 2px solid var(--ink); }
+  .btn:hover { background: var(--ink); }
+  .btn-ghost {
+    background: transparent; color: var(--ocean-deep);
+    border: 2px solid var(--ocean-deep); font: inherit;
+    padding: 0.65rem 1.2rem;
+  }
+  .btn-ghost:hover { background: var(--ocean-deep); color: var(--parchment); }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 1rem; }
+
+  /* Definition section */
+  .two-col { display: grid; gap: 2rem; align-items: start; }
+  @media (min-width: 760px) { .two-col { grid-template-columns: 1fr 1fr; } }
+
+  .speaker { margin: 0; text-align: center; }
+  .speaker img {
+    width: min(260px, 80%); height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: top;
+    border: 3px solid var(--ink); border-radius: var(--radius); background: var(--card);
+  }
+  .bubble {
+    position: relative; background: #fff; color: #1c1a17;
+    border: 3px solid var(--ink); border-radius: 14px;
+    padding: 0.9rem 1rem; margin: 0 auto 1rem; max-width: 28ch; text-align: left;
+    font-size: 1rem; line-height: 1.5;
+  }
+  .bubble p { margin: 0; max-width: none; color: inherit; }
+  .bubble::after {
+    content: ""; position: absolute; left: 50%; bottom: -16px;
+    border-width: 16px 12px 0; border-style: solid;
+    border-color: var(--ink) transparent transparent;
+    transform: translateX(-50%);
+  }
+  .speaker figcaption { font-weight: 700; margin-top: 0.4rem; color: var(--ocean-deep); }
+
+  .contrast-table {
+    width: 100%; border-collapse: collapse; background: var(--card);
+    border: 2px solid var(--ocean-deep); border-radius: var(--radius); overflow: hidden; font-size: 0.97rem;
+    margin-top: 1rem;
+  }
+  .contrast-table caption { text-align: left; font-weight: 700; padding: 0.6rem 0.8rem; caption-side: top; color: var(--ocean-deep); }
+  .contrast-table th, .contrast-table td { text-align: left; vertical-align: top; padding: 0.6rem 0.75rem; border-top: 1px solid color-mix(in srgb, var(--ocean-deep) 18%, transparent); }
+  .contrast-table thead th { background: var(--ocean-deep); color: var(--parchment); }
+  .contrast-table tbody th { background: var(--card); color: var(--ocean-deep); }
+  .table-wrap { overflow-x: auto; }
+
+  .wanted {
+    background: var(--card); border: 3px solid var(--ink);
+    border-radius: var(--radius); padding: 1.25rem; margin: 1.5rem 0;
+    box-shadow: 5px 5px 0 var(--straw-red);
+  }
+  .wanted h3 { margin-top: 0; }
+  .wanted p:last-child { margin-bottom: 0; }
+
+  /* Elements */
+  .element-grid { display: grid; gap: 1.5rem; }
+  @media (min-width: 860px) { .element-grid { grid-template-columns: 1fr 1fr; } }
+  .element-card {
+    background: var(--card); border: 2px solid var(--ocean-deep);
+    border-radius: var(--radius); padding: 1.25rem;
+    display: grid; gap: 0.75rem;
+  }
+  
+  .element-card h3 { margin: 0; font-size: 1.25rem; }
+  .crew { margin: 0; flex-shrink: 0; text-align: center; }
+  .crew img {
+    width: 96px; height: 96px; object-fit: cover; object-position: top;
+    border-radius: 50%; border: 3px solid var(--straw-red); background: var(--parchment);
+  }
+  .crew figcaption { font-size: 0.85rem; font-weight: 700; color: var(--ocean-deep); margin-top: 0.25rem; max-width: 12ch; }
+  .element-card .label { font-weight: 700; color: var(--straw-red); }
+  .element-card p { max-width: none; margin: 0; }
+  .element-card .application {
+    border-left: 4px solid var(--sunlit); padding-left: 0.8rem;
+    background: color-mix(in srgb, var(--sunlit) 10%, transparent); padding-top: 0.3rem; padding-bottom: 0.3rem;
+  }
+
+  /* Literary Piece Example */
+  .example-meta { font-style: italic; color: var(--ocean-mid); margin-bottom: 1.5rem; }
+  .step {
+    background: var(--card); border-left: 6px solid var(--ocean-mid);
+    border-radius: 0 var(--radius) var(--radius) 0; padding: 1rem 1.25rem; margin: 1.25rem 0;
+  }
+  .step h3 { margin-top: 0; }
+  .step ol, .step ul { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+  .step li { margin-bottom: 0.4rem; }
+  .model {
+    background: var(--ocean-deep); color: var(--parchment);
+    border-radius: var(--radius); padding: 1.25rem 1.4rem; margin-top: 1rem;
+  }
+  .model p { max-width: none; color: var(--parchment); }
+  .model .part-label { font-weight: 700; color: var(--sunlit); }
+
+  /* Quiz */
+  .quiz-set-label { font-weight: 700; color: var(--ocean-mid); margin-bottom: 0.5rem; }
+  .quiz-card {
+    background: var(--card); border: 2px solid var(--ink);
+    border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1.25rem;
+  }
+  .quiz-card fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .quiz-card legend { font-weight: 700; margin-bottom: 0.6rem; padding: 0; font-size: 1.05rem; }
+  .choice {
+    display: flex; align-items: flex-start; gap: 0.6rem;
+    padding: 0.45rem 0.5rem; border-radius: 4px; cursor: pointer;
+  }
+  .choice:hover { background: color-mix(in srgb, var(--ocean-mid) 12%, transparent); }
+  .choice input { margin-top: 0.35rem; accent-color: var(--straw-red); }
+  .feedback { min-height: 1.5em; margin: 0.6rem 0 0; font-weight: 600; }
+  .feedback.correct { color: var(--good); }
+  .feedback.incorrect { color: var(--straw-red); }
+  .score-line { font-weight: 700; font-size: 1.1rem; margin: 0; }
+
+  /* Checklist */
+  .checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; }
+  .checklist label {
+    display: flex; gap: 0.7rem; align-items: flex-start;
+    padding: 0.7rem 0.9rem; background: var(--card);
+    border: 1px solid color-mix(in srgb, var(--ocean-deep) 25%, transparent);
+    border-radius: var(--radius); cursor: pointer;
+  }
+  .checklist input { margin-top: 0.4rem; width: 1.1rem; height: 1.1rem; accent-color: var(--straw-red); }
+  .checklist input:checked + span { text-decoration: line-through; opacity: 0.7; }
+  .progress-wrap { margin-bottom: 1rem; }
+  .progress-label { font-weight: 700; margin-bottom: 0.35rem; }
+  progress { width: 100%; height: 16px; accent-color: var(--straw-red); }
+
+  /* Key Elements dropdowns */
+  details.element-card { display: block; padding: 0; }
+  details.element-card summary {
+    cursor: pointer; list-style: none; display: flex; align-items: center; gap: 1rem;
+    padding: 0.9rem 1.25rem; position: relative;
+  }
+  details.element-card summary::-webkit-details-marker { display: none; }
+  details.element-card summary::after {
+    content: "+"; margin-left: auto; font-family: "Alfa Slab One", Georgia, serif;
+    color: var(--straw-red); font-size: 1.5rem;
+  }
+  details.element-card[open] summary::after { content: "\2212"; }
+  details.element-card summary:focus-visible { outline-offset: -3px; }
+  details.element-card .element-body {
+    display: grid; gap: 0.75rem; padding: 0 1.25rem 1.25rem;
+    border-top: 1px solid color-mix(in srgb, var(--ocean-deep) 20%, transparent);
+    padding-top: 1rem;
+  }
+  details.element-card .crew { margin: 0; }
+  details.element-card .crew img { width: 72px; height: 72px; }
+  details.element-card .crew figcaption { font-size: 0.8rem; }
+
+  /* Learning activities (Exam 2) */
+  .activity {
+    background: var(--card); border: 2px solid var(--ink);
+    border-radius: var(--radius); padding: clamp(1.1rem, 3vw, 1.6rem); margin-bottom: 2rem;
+  }
+  .activity-tag {
+    display: inline-block; font-size: 0.9rem; font-weight: 700; color: var(--ocean-deep);
+    background: var(--sunlit); padding: 0.15rem 0.6rem; border-radius: 3px; margin-bottom: 0.5rem;
+  }
+  .goal { font-style: italic; color: var(--ocean-mid); margin-bottom: 1rem; }
+  .match-row {
+    display: grid; gap: 0.5rem 1rem; align-items: center;
+    padding: 0.8rem 0; border-top: 1px solid color-mix(in srgb, var(--ocean-deep) 15%, transparent);
+  }
+  @media (min-width: 760px) { .match-row { grid-template-columns: 1fr 14rem; } }
+  .match-row label { font-weight: 600; }
+  select, textarea {
+    font: inherit; color: var(--ink); background: var(--parchment);
+    border: 2px solid var(--ocean-deep); border-radius: var(--radius);
+    padding: 0.5rem 0.6rem; width: 100%;
+  }
+  textarea { min-height: 110px; resize: vertical; }
+  select:focus, textarea:focus { outline: 3px solid var(--focus); outline-offset: 1px; }
+  .field-label { display: block; font-weight: 700; margin-bottom: 0.3rem; }
+  .passage {
+    background: color-mix(in srgb, var(--sunlit) 12%, var(--parchment));
+    border-left: 5px solid var(--ocean-mid);
+    padding: 1rem 1.2rem; margin: 0 0 1.2rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .passage p { margin: 0; max-width: none; }
+  .sort-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+  .sort-list li {
+    display: grid; gap: 0.5rem; background: var(--parchment);
+    border: 1px solid color-mix(in srgb, var(--ocean-deep) 25%, transparent);
+    border-radius: var(--radius); padding: 0.8rem;
+  }
+  @media (min-width: 760px) { .sort-list li { grid-template-columns: 1fr 12rem; align-items: center; } }
+  .sort-list p { margin: 0; max-width: none; }
+  .builder { display: grid; gap: 0.75rem; margin-bottom: 1rem; }
+  @media (min-width: 760px) { .builder { grid-template-columns: 1fr 1fr; } }
+  .builder label { font-weight: 600; display: block; margin-bottom: 0.3rem; }
+  .thesis-output {
+    background: var(--ocean-deep); color: var(--parchment);
+    padding: 1rem 1.2rem; border-radius: var(--radius); min-height: 4.5rem; margin: 0.5rem 0;
+  }
+  .thesis-output p { margin: 0; max-width: none; color: var(--parchment); }
+  .prompt-card {
+    background: var(--parchment);
+    border: 1px solid color-mix(in srgb, var(--ocean-deep) 25%, transparent);
+    border-radius: var(--radius); padding: 1rem 1.1rem; margin-bottom: 1rem;
+  }
+  .prompt-card p { max-width: none; }
+  .peer-check { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.4rem; }
+  .peer-check label { display: flex; gap: 0.6rem; align-items: flex-start; cursor: pointer; }
+  .peer-check input { margin-top: 0.4rem; width: 1.05rem; height: 1.05rem; accent-color: var(--straw-red); }
+  .feedback { min-height: 1.5em; margin: 0.5rem 0 0; font-weight: 600; }
+  .feedback.correct { color: var(--good); }
+  .feedback.incorrect { color: var(--straw-red); }
+  .score-line { font-weight: 700; font-size: 1.05rem; margin: 0.5rem 0 0; }
+  .score-line + .feedback { margin-top: 0.25rem; }
+
+  /* Footer */
+  footer { background: var(--ocean-deep); color: var(--parchment); margin-top: 2rem; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem; font-size: 0.95rem; }
+  footer p { margin: 0 0 0.6rem; max-width: none; color: var(--parchment); }
+  footer ul { list-style: none; padding: 0; margin: 0 0 0.75rem; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .poster { animation: sail-in 0.7s ease-out both; }
+    @keyframes sail-in {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: none; }
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  @media (max-width: 560px) {
+    .header-inner { justify-content: center; text-align: center; }
+    .brand { justify-content: center; }
+    .nav-links { justify-content: center; }
+    .poster { box-shadow: 4px 4px 0 var(--ocean-deep); }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#home"><span class="log-pose" aria-hidden="true"></span>Read Between the Waves</a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="#what">Definition</a></li>
+        <li><a href="#elements">Key Elements</a></li>
+        <li><a href="#example">Literary Piece Example</a></li>
+        <li><a href="#activities">Learning Activities</a></li>
+        <li><a href="#checklist">Checklist</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <figure class="crew-banner" style="margin:0 auto; max-width:1100px; text-align:center;"><img src="images/strawhats.png" alt="The Straw Hat Pirates, the crew of Monkey D. Luffy, standing together from One Piece" style="width:100%; max-height:360px; object-fit:contain; display:block; margin:0 auto;" onerror="this.remove()"></figure>
+
+  <!-- Introduction -->
+  <section id="home" class="hero" aria-labelledby="hero-title">
+    <div class="poster">
+      <div>
+        <h1 id="hero-title">Read Between the Waves</h1>
+        <p class="lede">Literary analysis is the practice of making a clear, arguable claim about a text and backing it up with evidence from that text. This guide walks you through the core elements, shows the method on a real literary piece, and lets you test yourself along the way.</p>
+        <p><a class="btn" href="#what">Begin the voyage</a></p>
+      </div>
+      <dl class="poster-side">
+        <dt>Purpose</dt>
+        <dd>To explain how a text creates meaning.</dd>
+        <dt>Method</dt>
+        <dd>Make a claim, support it with evidence, and explain the connection.</dd>
+        <dt>Outcome</dt>
+        <dd>A clear argument that a reader can defend.</dd>
+      </dl>
+    </div>
+    <svg class="wave-band" viewBox="0 0 1200 56" preserveAspectRatio="none" role="img" aria-label="Decorative wave pattern">
+      <path d="M0 28 Q 37.5 0 75 28 T150 28 T225 28 T300 28 T375 28 T450 28 T525 28 T600 28 T675 28 T750 28 T825 28 T900 28 T975 28 T1050 28 T1125 28 T1200 28 V56 H0 Z" fill="#1f5673"/>
+      <path d="M0 40 Q 37.5 16 75 40 T150 40 T225 40 T300 40 T375 40 T450 40 T525 40 T600 40 T675 40 T750 40 T825 40 T900 40 T975 40 T1050 40 T1125 40 T1200 40 V56 H0 Z" fill="#0d2b45"/>
+    </svg>
+  </section>
+
+  <!-- Definition -->
+  <section id="what" aria-labelledby="what-title">
+    <span class="section-tag">Chapter 1</span>
+    <h2 id="what-title">What Is Literary Analysis?</h2>
+    <div class="two-col">
+      <div>
+        <p>Literary analysis is an argument about a literary text. The analyst makes a claim about how the text creates meaning, supports that claim with evidence drawn from the text, and explains how the evidence supports the claim.</p>
+        <p>A plot summary, by contrast, reports what happens in a text. It answers the question “What occurs?” Literary analysis answers the questions “How does the text produce this effect?” and “Why does this matter?”</p>
+      </div>
+      <figure class="speaker">
+        <blockquote class="bubble">
+          <p>Literary analysis is an argument about a text. It goes beyond what happens and explains how the text makes its meaning.</p>
+        </blockquote>
+        <img src="images/robin.png" alt="Nico Robin from One Piece" width="260" height="346" onerror="this.remove()">
+      </figure>
+    </div>
+
+    <div class="table-wrap">
+      <table class="contrast-table">
+        <caption>Plot summary compared with literary analysis</caption>
+        <thead>
+          <tr>
+            <th scope="col">Feature</th>
+            <th scope="col">Plot summary</th>
+            <th scope="col">Literary analysis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Central question</th>
+            <td>What happens in the text?</td>
+            <td>How and why does the text create its effects?</td>
+          </tr>
+          <tr>
+            <th scope="row">Main focus</th>
+            <td>The sequence of events</td>
+            <td>Meaning, technique, and interpretation</td>
+          </tr>
+          <tr>
+            <th scope="row">Use of evidence</th>
+            <td>Describes events without arguing for an interpretation</td>
+            <td>Selects specific details to support a claim</td>
+          </tr>
+          <tr>
+            <th scope="row">Example from the Arlong Park arc</th>
+            <td>Luffy arrives at Cocoyashi Village, defeats Arlong, and frees the villagers.</td>
+            <td>Oda uses Nami’s forced map-making to show that Arlong controls her knowledge and her future, which makes her eventual rebellion a statement about freedom.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="wanted">
+      <h3>Thesis: The Central Claim</h3>
+      <p>A thesis is the main argument of a piece of literary analysis. A strong thesis is arguable, meaning that a reasonable reader could disagree with it, and it identifies the element of the text that supports the argument. For example, “Oda suggests that freedom depends on control over one’s own knowledge” is a thesis, whereas “The Arlong Park arc is about Luffy fighting Arlong” is a plot summary.</p>
+    </div>
+  </section>
+
+  <!-- Key elements -->
+  <section id="elements" aria-labelledby="elements-title">
+    <span class="section-tag">Chapter 2</span>
+    <h2 id="elements-title">Key Elements of Literary Analysis</h2>
+    <p>Each element below is a tool that analysts use to examine a text. For each element, this section explains its significance for learners and shows how it operates in the Arlong Park arc of <em>One Piece</em>.</p>
+
+    <div class="element-grid">
+
+      <details class="element-card" aria-labelledby="el-theme">
+<summary><figure class="crew">
+            <img src="images/luffy.png" alt="Monkey D. Luffy from One Piece" width="96" height="96" onerror="this.remove()">
+            <figcaption>Monkey D. Luffy</figcaption>
+          </figure>
+          <h3 id="el-theme">Theme</h3></summary>
+<div class="element-body">
+        <p><span class="label">Definition.</span> The central idea that a text communicates about life, people, or society, usually expressed as a complete statement.</p>
+        <p><span class="label">Significance for learners.</span> Identifying the theme teaches readers to move beyond the events of a story and ask what the story means. The theme provides the foundation for nearly every thesis.</p>
+        <p class="application"><span class="label">In <em>One Piece</em>.</span> Luffy’s pursuit of freedom and his dream of becoming the Pirate King express a theme that persists throughout the series: a person’s dream can give direction to every hardship.</p>
+      </div>
+</details>
+
+      <details class="element-card" aria-labelledby="el-character">
+<summary><figure class="crew">
+            <img src="images/zoro.png" alt="Roronoa Zoro from One Piece" width="96" height="96" onerror="this.remove()">
+            <figcaption>Roronoa Zoro</figcaption>
+          </figure>
+          <h3 id="el-character">Character</h3></summary>
+<div class="element-body">
+        <p><span class="label">Definition.</span> The people, animals, or beings who act within a story. Analysts examine what characters say and do, how they change, and how other characters respond to them.</p>
+        <p><span class="label">Significance for learners.</span> Character analysis helps readers connect a person’s choices to larger ideas. Distinguishing a static character, who remains essentially unchanged, from a dynamic character, who transforms, sharpens an analytical argument.</p>
+        <p class="application"><span class="label">In <em>One Piece</em>.</span> Zoro demonstrates a steady, static commitment to his goal of becoming the world’s greatest swordsman, which provides a useful contrast with characters whose goals change over the course of the story.</p>
+      </div>
+</details>
+
+      <details class="element-card" aria-labelledby="el-setting">
+<summary><figure class="crew">
+            <img src="images/nami.png" alt="Nami from One Piece" width="96" height="96" onerror="this.remove()">
+            <figcaption>Nami</figcaption>
+          </figure>
+          <h3 id="el-setting">Setting</h3></summary>
+<div class="element-body">
+        <p><span class="label">Definition.</span> The time and place of a story, together with its social and emotional atmosphere.</p>
+        <p><span class="label">Significance for learners.</span> Setting determines what characters can do and what conflicts they face. Learners who analyze setting connect a story’s environment to the choices its characters make.</p>
+        <p class="application"><span class="label">In <em>One Piece</em>.</span> Nami, the crew’s navigator, reads the sea and charts its routes. Her work reminds readers that the Grand Line is dangerous, so the setting determines the decisions the crew must make.</p>
+      </div>
+</details>
+
+      <details class="element-card" aria-labelledby="el-plot">
+<summary><figure class="crew">
+            <img src="images/usopp.png" alt="Usopp from One Piece" width="96" height="96" onerror="this.remove()">
+            <figcaption>Usopp</figcaption>
+          </figure>
+          <h3 id="el-plot">Plot Structure</h3></summary>
+<div class="element-body">
+        <p><span class="label">Definition.</span> The arrangement of events, usually described as exposition, rising action, climax, falling action, and resolution.</p>
+        <p><span class="label">Significance for learners.</span> Analyzing structure reveals why a writer arranged events in a particular order. Learners can ask why a climax arrives when it does or why a resolution feels complete, and those answers can support a claim.</p>
+        <p class="application"><span class="label">In <em>One Piece</em>.</span> Usopp, who often tells stories, reminds readers that a narrative’s structure is shaped by the storyteller. The series builds its story through arcs, each with its own rising stakes and resolution.</p>
+      </div>
+</details>
+
+      <details class="element-card" aria-labelledby="el-pov">
+<summary><figure class="crew">
+            <img src="images/robin.png" alt="Nico Robin from One Piece" width="96" height="96" onerror="this.remove()">
+            <figcaption>Nico Robin</figcaption>
+          </figure>
+          <h3 id="el-pov">Point of View</h3></summary>
+<div class="element-body">
+        <p><span class="label">Definition.</span> The perspective from which a story is told. First person uses “I.” Third-person limited follows one character’s thoughts. Third-person omniscient knows the thoughts of all characters.</p>
+        <p><span class="label">Significance for learners.</span> Point of view determines what readers know and what they must infer. Identifying it helps learners recognize the limits of a narrator’s knowledge and evaluate how a perspective shapes the reader’s understanding.</p>
+        <p class="application"><span class="label">In <em>One Piece</em>.</span> Robin, who has spent her life studying history, observes events from a different vantage point than her crewmates. Her perspective helps the reader understand the wider history of the world.</p>
+      </div>
+</details>
+
+      <details class="element-card" aria-labelledby="el-symbol">
+<summary><figure class="crew">
+            <img src="images/shanks.png" alt="Shanks from One Piece" width="96" height="96" onerror="this.remove()">
+            <figcaption>Shanks</figcaption>
+          </figure>
+          <h3 id="el-symbol">Symbolism</h3></summary>
+<div class="element-body">
+        <p><span class="label">Definition.</span> A concrete object, place, or image that represents a larger idea. A symbol gains meaning through repetition and context.</p>
+        <p><span class="label">Significance for learners.</span> Symbols allow writers to express abstract ideas through physical details. Learners who identify symbols connect concrete images to conceptual claims, which is central to interpretation.</p>
+        <p class="application"><span class="label">In <em>One Piece</em>.</span> The straw hat that Shanks gives to Luffy symbolizes a promise and a shared dream. It carries meaning because it is repeated and because its owner’s loyalty to it is tested.</p>
+      </div>
+</details>
+
+      <details class="element-card" aria-labelledby="el-motif">
+<summary><figure class="crew">
+            <img src="images/brook.png" alt="Brook from One Piece" width="96" height="96" onerror="this.remove()">
+            <figcaption>Brook</figcaption>
+          </figure>
+          <h3 id="el-motif">Motif</h3></summary>
+<div class="element-body">
+        <p><span class="label">Definition.</span> A recurring image, phrase, or pattern that develops a theme across a text.</p>
+        <p><span class="label">Significance for learners.</span> Unlike a single symbol, a motif accumulates meaning over time. Tracing a motif shows how a writer builds an idea gradually, which strengthens the evidence that learners can cite.</p>
+        <p class="application"><span class="label">In <em>One Piece</em>.</span> Brook’s laughter, which recurs throughout the series, is a motif. Each appearance reinforces his personality and his cheerful resilience, even in serious moments.</p>
+      </div>
+</details>
+
+      <details class="element-card" aria-labelledby="el-irony">
+<summary><figure class="crew">
+            <img src="images/usopp.png" alt="Usopp from One Piece" width="96" height="96" onerror="this.remove()">
+            <figcaption>Usopp</figcaption>
+          </figure>
+          <h3 id="el-irony">Irony</h3></summary>
+<div class="element-body">
+        <p><span class="label">Definition.</span> A gap between expectation and reality. Verbal irony involves saying one thing and meaning another. Situational irony involves an outcome that contradicts expectation. Dramatic irony occurs when the audience knows something that a character does not.</p>
+        <p><span class="label">Significance for learners.</span> Irony reveals a writer’s attitude and encourages readers to examine the gap between appearance and truth.</p>
+        <p class="application"><span class="label">In <em>One Piece</em>.</span> Usopp frequently boasts of his courage and then runs from danger, which produces comic irony. His later acts of bravery make his earlier boasts ironic in a different way.</p>
+      </div>
+</details>
+
+      <details class="element-card" aria-labelledby="el-tone">
+<summary><figure class="crew">
+            <img src="images/chopper.png" alt="Tony Tony Chopper from One Piece" width="96" height="96" onerror="this.remove()">
+            <figcaption>Tony Tony Chopper</figcaption>
+          </figure>
+          <h3 id="el-tone">Tone and Mood</h3></summary>
+<div class="element-body">
+        <p><span class="label">Definition.</span> Tone is the writer’s attitude toward the subject, such as tender, mocking, or resigned. Mood is the feeling that the text creates in the reader.</p>
+        <p><span class="label">Significance for learners.</span> Tone shapes how a reader interprets a text. Learners who identify tone and mood connect word choice and pacing to emotional effect, which strengthens their analysis.</p>
+        <p class="application"><span class="label">In <em>One Piece</em>.</span> The series often shifts from comic to serious tone within a single scene. Chopper’s sincere and gentle manner can soften a moment of danger, which demonstrates how tone guides the audience’s emotional response.</p>
+      </div>
+</details>
+
+    </div>
+  </section>
+
+  <!-- Literary Piece Example -->
+  <section id="example" aria-labelledby="example-title">
+    <span class="section-tag">Chapter 3</span>
+    <h2 id="example-title">Literary Piece Example: The Arlong Park Arc</h2>
+    <p class="example-meta">Arlong Park arc, <em>One Piece</em>. Luffy and his crew arrive at Cocoyashi Village, where Nami has been forced to serve the fishman pirate Arlong.</p>
+
+    <figure class="crew" style="margin:1.5rem auto; width:fit-content;"><img src="images/arlong.png" alt="Arlong, the fishman pirate who controls Cocoyashi Village" width="260" height="368" style="width:260px; height:auto; border:3px solid var(--straw-red); border-radius:var(--radius); background:var(--card);" onerror="this.remove()"></figure>
+
+    <p>The following example demonstrates how a reader moves from observation to a complete analytical paragraph. Each step describes the action to perform and the criteria for success.</p>
+
+    <div class="step">
+      <h3>Step 1: Find a Question</h3>
+      <p>A strong analysis begins with a question that a text can answer in more than one way. To find one, read the text closely and notice a pattern, a contradiction, or a detail that appears more than once.</p>
+      <ol>
+        <li>Identify a pattern. In the Arlong Park arc, Nami’s maps appear repeatedly, first as a tool of Arlong’s control and later as an expression of her dream.</li>
+        <li>Ask a question that begins with “how” or “why.” A question such as “Why does the arc connect Nami’s map-making to her loss of freedom?” is productive, whereas “What happens in the arc?” is not.</li>
+        <li>Confirm that the question has more than one possible answer. If only one answer is possible, the question does not support an argument.</li>
+      </ol>
+      <p><strong>Question selected:</strong> Why does the arc connect Nami’s map-making to her loss of freedom?</p>
+    </div>
+
+    <div class="step">
+      <h3>Step 2: Gather Evidence</h3>
+      <p>Evidence consists of specific details from the text that relate directly to your question. Choose evidence carefully, because weak or irrelevant details will weaken the entire argument.</p>
+      <ol>
+        <li>Reread the passages that address your question. Mark each moment when Nami’s maps serve Arlong and each moment when the maps represent her own goals.</li>
+        <li>Select two or three details. Strong examples include Arlong’s demand that Nami draw maps for his crew, the fear that keeps the villagers from resisting, and Nami’s lifelong ambition to chart the world.</li>
+        <li>Record each detail with a brief note about its content and its location in the arc, such as the chapter or episode where it appears.</li>
+        <li>Paraphrase longer passages in your own words, and be certain that your paraphrase preserves the meaning of the original.</li>
+      </ol>
+    </div>
+
+    <div class="step">
+      <h3>Step 3: Explain the Connection</h3>
+      <p>The connection links the evidence to your claim. Write the paragraph in the order claim, evidence, and analysis, so that each sentence has a clear purpose.</p>
+      <ul>
+        <li><strong>Claim:</strong> State your interpretation as a complete sentence. The claim should answer the question from Step 1 and be arguable.</li>
+        <li><strong>Evidence:</strong> Present the detail from Step 2 as an accurate paraphrase or as a short quotation. Do not assume that the reader will see the connection without explanation.</li>
+        <li><strong>Analysis:</strong> Explain how the evidence supports the claim. Describe the effect of the detail, interpret its meaning, and show why it matters to the larger argument.</li>
+      </ul>
+    </div>
+
+    <h3>Complete Analytical Paragraph</h3>
+    <div class="model">
+      <p><span class="part-label">Claim.</span> The Arlong Park arc suggests that freedom depends on control over one’s own knowledge, and Nami’s maps illustrate how a person’s skills can be turned against that person.</p>
+      <p><span class="part-label">Evidence.</span> Arlong compels Nami to draw maps for his crew, using her skill as a navigator to chart the seas on his behalf. While she works, the villagers remain silent under the threat of his crew, and Nami’s own ambition to draw a map of the entire world remains hidden from them.</p>
+      <p><span class="part-label">Analysis.</span> The map becomes a symbol of the gap between what Nami can do and what she is allowed to do. Because her knowledge of the sea serves Arlong, her ability to navigate becomes a tool of oppression. When she later rejects his authority, the same skill becomes an expression of freedom, which shows that the arc treats knowledge as the foundation of autonomy.</p>
+    </div>
+  </section>
+
+  <!-- Learning activities (Exam 2) -->
+  <section id="activities" aria-labelledby="activities-title">
+    <span class="section-tag">Chapter 4</span>
+    <h2 id="activities-title">Learning Activities</h2>
+    <p>Each activity has a goal, a task, and immediate feedback. Complete them in order. Your answers become final once you check them. Activities 2 through 7 and the practice quiz use the Arlong Park arc of <em>One Piece</em>.</p>
+
+    <article class="activity" aria-labelledby="act0-title">
+      <span class="activity-tag">Activity 1</span>
+      <figure class="activity-crew" style="float:right; margin:0 0 1rem 1.25rem; width:130px; text-align:center;"><img src="images/luffy.png" alt="Monkey D. Luffy from One Piece" width="130" height="150" style="width:130px; height:auto; border:3px solid var(--straw-red); border-radius:var(--radius); background:var(--parchment);" onerror="this.remove()"></figure>
+      <h3 id="act0-title">Practice Quiz</h3>
+      <p class="goal">Goal: Test your understanding of literary analysis terms and the Arlong Park arc.</p>
+      <p>Each question offers four choices. Answer all five questions in the current set, then select “Check answers.” Your answers become final once checked. Select “Next set” to load a new set. The quiz contains three sets, which rotate.</p>
+      <figure class="quiz-figure" style="margin:0 0 1.5rem; text-align:center;"><img src="images/rayleigh.png" alt="Silvers Rayleigh from One Piece" style="width:220px; height:auto; border:3px solid var(--ocean-deep); border-radius:var(--radius); background:var(--card);" onerror="this.remove()"></figure>
+      <form id="quiz" novalidate>
+      <p class="quiz-set-label" id="set-label" aria-live="polite"></p>
+      <div id="quiz-questions"></div>
+      <div class="btn-row">
+        <button type="button" class="btn-ghost" id="check-btn">Check answers</button>
+        <button type="button" class="btn-ghost" id="reset-btn">Next set</button>
+      </div>
+      <p class="score-line" id="score" aria-live="polite"></p>
+    </form>
+    </article>
+
+<article class="activity" aria-labelledby="act1-title">
+      <span class="activity-tag">Activity 2</span>
+      <figure class="activity-crew" style="float:right; margin:0 0 1rem 1.25rem; width:130px; text-align:center;"><img src="images/zoro.png" alt="Roronoa Zoro from One Piece" width="130" height="150" style="width:130px; height:auto; border:3px solid var(--straw-red); border-radius:var(--radius); background:var(--parchment);" onerror="this.remove()"></figure>
+      <h3 id="act1-title">Match the Device</h3>
+      <p class="goal">Goal: Identify a literary device by its effect on a sentence.</p>
+      <p>For each sentence, select the device that it uses, then select “Check matches.”</p>
+
+      <div class="match-row">
+        <label for="m1">“Nami’s maps were as precise as the stone walls of a fortress.”</label>
+        <select id="m1" data-answer="simile">
+          <option value="">Choose a device</option>
+          <option value="simile">Simile</option>
+          <option value="personification">Personification</option>
+          <option value="irony">Irony</option>
+          <option value="foreshadowing">Foreshadowing</option>
+        </select>
+      </div>
+      <div class="match-row">
+        <label for="m2">“The sea seemed to mock the fishmen’s ambitions.”</label>
+        <select id="m2" data-answer="personification">
+          <option value="">Choose a device</option>
+          <option value="simile">Simile</option>
+          <option value="personification">Personification</option>
+          <option value="irony">Irony</option>
+          <option value="foreshadowing">Foreshadowing</option>
+        </select>
+      </div>
+      <div class="match-row">
+        <label for="m3">“Arlong boasted that no one could challenge his rule, never suspecting that a young pirate was already approaching the harbor.”</label>
+        <select id="m3" data-answer="irony">
+          <option value="">Choose a device</option>
+          <option value="simile">Simile</option>
+          <option value="personification">Personification</option>
+          <option value="irony">Irony</option>
+          <option value="foreshadowing">Foreshadowing</option>
+        </select>
+      </div>
+      <div class="match-row">
+        <label for="m4">“The villagers lowered their heads and said nothing, a silence that would not last.”</label>
+        <select id="m4" data-answer="foreshadowing">
+          <option value="">Choose a device</option>
+          <option value="simile">Simile</option>
+          <option value="personification">Personification</option>
+          <option value="irony">Irony</option>
+          <option value="foreshadowing">Foreshadowing</option>
+        </select>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn-ghost" data-check="match">Check matches</button>
+      </div>
+      <p class="score-line" id="match-score" aria-live="polite"></p>
+      <p class="feedback" id="match-feedback" aria-live="polite"></p>
+    </article>
+
+    <article class="activity" aria-labelledby="act2-title">
+      <span class="activity-tag">Activity 3</span>
+      <figure class="activity-crew" style="float:right; margin:0 0 1rem 1.25rem; width:130px; text-align:center;"><img src="images/nami.png" alt="Nami from One Piece" width="130" height="150" style="width:130px; height:auto; border:3px solid var(--straw-red); border-radius:var(--radius); background:var(--parchment);" onerror="this.remove()"></figure>
+      <h3 id="act2-title">Sort the Paragraph</h3>
+      <p class="goal">Goal: Separate the claim, evidence, and analysis in an analytical paragraph.</p>
+      <p>Each sentence below comes from one analytical paragraph about the Arlong Park arc. Label each sentence as a claim, evidence, or analysis.</p>
+
+      <ul class="sort-list">
+        <li>
+          <p>Arlong compels Nami to draw maps for his crew.</p>
+          <select aria-label="Label for: Arlong compels Nami to draw maps" data-answer="evidence">
+            <option value="">Choose a label</option>
+            <option value="claim">Claim</option>
+            <option value="evidence">Evidence</option>
+            <option value="analysis">Analysis</option>
+          </select>
+        </li>
+        <li>
+          <p>This arrangement shows that Arlong’s control extends even to Nami’s knowledge.</p>
+          <select aria-label="Label for: This arrangement shows that Arlong’s control" data-answer="analysis">
+            <option value="">Choose a label</option>
+            <option value="claim">Claim</option>
+            <option value="evidence">Evidence</option>
+            <option value="analysis">Analysis</option>
+          </select>
+        </li>
+        <li>
+          <p>Oda uses Nami’s forced map-making to argue that freedom depends on control over one’s own knowledge.</p>
+          <select aria-label="Label for: Oda uses Nami’s forced map-making" data-answer="claim">
+            <option value="">Choose a label</option>
+            <option value="claim">Claim</option>
+            <option value="evidence">Evidence</option>
+            <option value="analysis">Analysis</option>
+          </select>
+        </li>
+      </ul>
+
+      <div class="btn-row">
+        <button type="button" class="btn-ghost" data-check="sort">Check labels</button>
+      </div>
+      <p class="score-line" id="sort-score" aria-live="polite"></p>
+      <p class="feedback" id="sort-feedback" aria-live="polite"></p>
+    </article>
+
+    <article class="activity" aria-labelledby="act3-title">
+      <span class="activity-tag">Activity 4</span>
+      <figure class="activity-crew" style="float:right; margin:0 0 1rem 1.25rem; width:130px; text-align:center;"><img src="images/usopp.png" alt="Usopp from One Piece" width="130" height="150" style="width:130px; height:auto; border:3px solid var(--straw-red); border-radius:var(--radius); background:var(--parchment);" onerror="this.remove()"></figure>
+      <h3 id="act3-title">Build a Thesis</h3>
+      <p class="goal">Goal: Combine a claim verb and a reason into an arguable thesis.</p>
+      <p>Select one option in each column. The sentence updates as you choose, then select “Evaluate thesis” to read the feedback.</p>
+
+      <div class="builder">
+        <div>
+          <label for="verb" class="field-label">Claim verb</label>
+          <select id="verb">
+            <option value="suggests">suggests</option>
+            <option value="argues">argues</option>
+            <option value="reveals">reveals</option>
+          </select>
+        </div>
+        <div>
+          <label for="reason" class="field-label">Reason</label>
+          <select id="reason">
+            <option value="freedom depends on control over one’s own knowledge" data-strong="true">freedom depends on control over one’s own knowledge</option>
+            <option value="the village has a harbor" data-strong="false">the village has a harbor</option>
+            <option value="Arlong has a sawfish-like nose" data-strong="false">Arlong has a sawfish-like nose</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="thesis-output" aria-live="polite">
+        <p id="thesis-text"></p>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="btn-ghost" id="thesis-check">Evaluate thesis</button>
+      </div>
+      <p class="feedback" id="thesis-feedback" aria-live="polite"></p>
+    </article>
+
+    <article class="activity" aria-labelledby="act4-title">
+      <span class="activity-tag">Activity 5</span>
+      <figure class="activity-crew" style="float:right; margin:0 0 1rem 1.25rem; width:130px; text-align:center;"><img src="images/robin.png" alt="Nico Robin from One Piece" width="130" height="150" style="width:130px; height:auto; border:3px solid var(--straw-red); border-radius:var(--radius); background:var(--parchment);" onerror="this.remove()"></figure>
+      <h3 id="act4-title">Close Reading</h3>
+      <p class="goal">Goal: Infer meaning and point of view from a short passage.</p>
+
+      <div class="passage">
+        <p>The village had grown quiet since the pirates arrived. Nami sat at her table, her pen moving steadily across the parchment, and she did not look up when footsteps approached. Every line she drew was a line she had been told to draw. Only at night, when the house was dark, did she trace a coastline that no one had ordered her to make.</p>
+      </div>
+
+      <div class="match-row">
+        <label for="cr1">1. The narration states that “every line she drew was a line she had been told to draw.” What does this detail mainly suggest?</label>
+        <select id="cr1" data-answer="b">
+          <option value="">Choose an answer</option>
+          <option value="a">Nami enjoys her work for its own sake.</option>
+          <option value="b">Nami’s skill serves someone else’s control.</option>
+          <option value="c">Nami is careless when she draws.</option>
+        </select>
+      </div>
+      <div class="match-row">
+        <label for="cr2">2. What does the contrast between the daytime work and the night-time drawing suggest?</label>
+        <select id="cr2" data-answer="a">
+          <option value="">Choose an answer</option>
+          <option value="a">Nami is keeping a private ambition alive.</option>
+          <option value="b">Nami is too tired to continue working.</option>
+          <option value="c">Nami is learning to read a new language.</option>
+        </select>
+      </div>
+      <div class="match-row">
+        <label for="cr3">3. From which point of view is the passage told?</label>
+        <select id="cr3" data-answer="b">
+          <option value="">Choose an answer</option>
+          <option value="a">First person</option>
+          <option value="b">Third-person limited, following Nami</option>
+          <option value="c">Third-person omniscient, knowing every character’s thoughts</option>
+        </select>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn-ghost" data-check="close">Check answers</button>
+      </div>
+      <p class="score-line" id="close-score" aria-live="polite"></p>
+      <p class="feedback" id="close-feedback" aria-live="polite"></p>
+    </article>
+
+    <article class="activity" aria-labelledby="act5-title">
+      <span class="activity-tag">Activity 6</span>
+      <figure class="activity-crew" style="float:right; margin:0 0 1rem 1.25rem; width:130px; text-align:center;"><img src="images/brook.png" alt="Brook from One Piece" width="130" height="150" style="width:130px; height:auto; border:3px solid var(--straw-red); border-radius:var(--radius); background:var(--parchment);" onerror="this.remove()"></figure>
+      <h3 id="act5-title">Discuss and Give Feedback</h3>
+      <p class="goal">Goal: Test your reading with a partner and improve through peer feedback.</p>
+
+      <div class="prompt-card">
+        <p><strong>Prompt:</strong> Luffy defeats Arlong, but the village had endured years of Arlong’s rule. Does this resolution show that the villagers have regained their freedom, or does it suggest that they still depend on outside heroes? Defend your answer with one piece of evidence and one piece of analysis.</p>
+      </div>
+
+      <label for="draft" class="field-label">Your draft response</label>
+      <textarea id="draft" placeholder="Write your claim, evidence, and analysis here. Your draft remains on this page until you reload it."></textarea>
+
+      <h3>Peer Feedback Checklist</h3>
+      <p>Ask a partner to read your draft, then confirm each item that the draft satisfies.</p>
+      <ul class="peer-check">
+        <li><label><input type="checkbox" class="peer-item"><span>The claim is arguable rather than a summary.</span></label></li>
+        <li><label><input type="checkbox" class="peer-item"><span>The evidence comes directly from the text.</span></label></li>
+        <li><label><input type="checkbox" class="peer-item"><span>The analysis explains why the evidence matters.</span></label></li>
+      </ul>
+      <p class="score-line" id="peer-score" aria-live="polite"></p>
+    </article>
+
+    <article class="activity" aria-labelledby="act6-title">
+      <span class="activity-tag">Activity 7</span>
+      <figure class="activity-crew" style="float:right; margin:0 0 1rem 1.25rem; width:130px; text-align:center;"><img src="images/chopper.png" alt="Tony Tony Chopper from One Piece" width="130" height="150" style="width:130px; height:auto; border:3px solid var(--straw-red); border-radius:var(--radius); background:var(--parchment);" onerror="this.remove()"></figure>
+      <h3 id="act6-title">Apply It to Something You Read</h3>
+      <p class="goal">Goal: Transfer analysis skills to a text outside the classroom.</p>
+      <p>Choose a story, song, advertisement, or social media post that you encountered this week. Write three sentences: a claim about what the text is trying to make the audience feel or believe, a specific detail that supports your claim, and an explanation of how that detail produces the effect.</p>
+      <label for="real" class="field-label">Your three sentences</label>
+      <textarea id="real" placeholder="Claim. Evidence. Analysis."></textarea>
+    </article>
+  </section>
+
+  
+
+  <!-- Checklist -->
+  <section id="checklist" aria-labelledby="checklist-title">
+    <span class="section-tag">Chapter 5</span>
+    <h2 id="checklist-title">Analysis Checklist</h2>
+    <p>Review this checklist before you submit any literary analysis. Your progress remains on this page until you reload it.</p>
+
+    <div class="progress-wrap">
+      <p class="progress-label" id="progress-text">0 of 6 complete</p>
+      <progress id="progress" value="0" max="6" aria-labelledby="progress-text"></progress>
+    </div>
+
+    <ul class="checklist">
+      <li><label><input type="checkbox" class="check-item"><span>My thesis makes an arguable claim rather than a plot summary.</span></label></li>
+      <li><label><input type="checkbox" class="check-item"><span>I have included at least two pieces of evidence from the text.</span></label></li>
+      <li><label><input type="checkbox" class="check-item"><span>Each piece of evidence is followed by my own analysis.</span></label></li>
+      <li><label><input type="checkbox" class="check-item"><span>I have explained how the element I chose supports my claim.</span></label></li>
+      <li><label><input type="checkbox" class="check-item"><span>I have considered a counterargument and responded to it.</span></label></li>
+      <li><label><input type="checkbox" class="check-item"><span>My conclusion extends the argument rather than merely restating the thesis.</span></label></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p><strong>Group Members</strong></p>
+    <ul>
+      <li>Rafael Orito III</li>
+      <li>Jashmine Borje</li>
+      <li>Romalyn Nazareta</li>
+      <li>Sheena Mae Basan</li>
+      <li>KC Yacon</li>
+    </ul>
+    <p>Read Between the Waves is a learning site for literary analysis, inspired by the adventure and visual style of <em>One Piece</em>. Fonts: Alfa Slab One and Source Serif 4.</p>
+  </div>
+</footer>
+
+<script>
+  // =====================================================
+  // Learning activities (Exam 2)
+  // =====================================================
+  function setFeedback(el, text, ok) {
+    el.textContent = text;
+    el.className = "feedback " + (ok ? "correct" : "incorrect");
+  }
+
+  function checkSelects(selector, scoreId, feedbackId, goodMsg, badMsg) {
+    const selects = document.querySelectorAll(selector);
+    const checkName = feedbackId.replace("-feedback", "");
+    const checkBtn = document.querySelector('[data-check="' + checkName + '"]');
+    let correct = 0, missing = 0;
+    selects.forEach(function (sel) {
+      sel.style.borderColor = "";
+      if (!sel.value) { missing++; sel.style.borderColor = "var(--straw-red)"; return; }
+      if (sel.value === sel.dataset.answer) { correct++; sel.style.borderColor = "var(--ocean-mid)"; }
+      else { sel.style.borderColor = "var(--straw-red)"; }
+    });
+    document.getElementById(scoreId).textContent = "Score: " + correct + " of " + selects.length;
+    if (missing === 0) {
+      selects.forEach(function (sel) { sel.disabled = true; });
+      if (checkBtn) checkBtn.disabled = true;
+    }
+    const fb = document.getElementById(feedbackId);
+    if (missing === 0 && correct === selects.length) setFeedback(fb, goodMsg, true);
+    else if (missing > 0) setFeedback(fb, "Some items are still unanswered.", false);
+    else setFeedback(fb, badMsg, false);
+  }
+
+  function resetSelects(selector, scoreId, feedbackId) {
+    document.querySelectorAll(selector).forEach(function (sel) { sel.value = ""; sel.style.borderColor = ""; });
+    document.getElementById(scoreId).textContent = "";
+    const fb = document.getElementById(feedbackId);
+    fb.textContent = ""; fb.className = "feedback";
+  }
+
+  document.querySelector('[data-check="match"]').addEventListener("click", function () {
+    checkSelects("select[id^='m']", "match-score", "match-feedback",
+      "Every device is identified correctly. Notice how each device changes the effect of its sentence.",
+      "Some matches are incorrect. Consider what each device compares or does.");
+  });
+
+  document.querySelector('[data-check="sort"]').addEventListener("click", function () {
+    checkSelects(".sort-list select", "sort-score", "sort-feedback",
+      "Correct. The claim makes the argument, the evidence presents the text, and the analysis explains its significance.",
+      "Reread the sentences. Evidence describes the text, while analysis explains why the evidence matters.");
+  });
+
+  document.querySelector('[data-check="close"]').addEventListener("click", function () {
+    checkSelects("select[id^='cr']", "close-score", "close-feedback",
+      "All three answers match the passage. Strong readers infer meaning from small details.",
+      "Reread the passage. Pay attention to the contrast between the daytime work and the night-time drawing.");
+  });
+
+  const verb = document.getElementById("verb");
+  const reason = document.getElementById("reason");
+  const thesisText = document.getElementById("thesis-text");
+  function updateThesis() {
+    thesisText.textContent = "In the Arlong Park arc, Oda " + verb.value + " that " + reason.value + ".";
+  }
+  [verb, reason].forEach(function (el) { el.addEventListener("change", updateThesis); });
+  updateThesis();
+
+  document.getElementById("thesis-check").addEventListener("click", function () {
+    const option = reason.options[reason.selectedIndex];
+    const fb = document.getElementById("thesis-feedback");
+    verb.disabled = true;
+    reason.disabled = true;
+    this.disabled = true;
+    if (option.dataset.strong === "true") {
+      setFeedback(fb, "Strong choice. This reason is an arguable interpretation, so it gives the essay a claim to prove.", true);
+    } else {
+      setFeedback(fb, "This reason is a fact about the story rather than an interpretation. Choose a reason that explains what the text means.", false);
+    }
+  });
+
+  const peerItems = document.querySelectorAll(".peer-item");
+  function updatePeer() {
+    const done = Array.from(peerItems).filter(function (i) { return i.checked; }).length;
+    document.getElementById("peer-score").textContent = "Peer review: " + done + " of " + peerItems.length + " items confirmed";
+  }
+  peerItems.forEach(function (i) { i.addEventListener("change", updatePeer); });
+
+  // =====================================================
+  // Practice quiz: three sets of five questions, four choices each
+  const QUIZ_SETS = [
+    [
+      { text: "Which element refers to the central message that a text communicates about life?",
+        options: ["Setting", "Theme", "Motif", "Tone"], answer: 1,
+        why: "Theme is the central message. Setting is the time and place, motif is a recurring image, and tone is the writer’s attitude." },
+      { text: "Which point of view allows a narrator to know the thoughts of all characters?",
+        options: ["First person", "Third-person limited", "Third-person omniscient", "Second person"], answer: 2,
+        why: "Third-person omniscient allows the narrator to know the thoughts of every character. First person limits the narrator to “I,” and third-person limited follows one character." },
+      { text: "In the Arlong Park arc, what is Nami forced to do for Arlong?",
+        options: ["Cook meals for his crew", "Draw maps for his crew", "Fight the Straw Hat Pirates", "Steal treasure from the village"], answer: 1,
+        why: "Arlong forces Nami to draw maps for his crew, which turns her navigational skill into a tool of his control." },
+      { text: "Which thesis is the strongest for an analysis of the Arlong Park arc?",
+        options: ["The Arlong Park arc contains a fight between Luffy and Arlong.", "Oda uses Nami’s forced map-making to argue that freedom depends on control over one’s own knowledge.", "Nami is the navigator of the Straw Hat Pirates.", "The arc takes place in Cocoyashi Village."], answer: 1,
+        why: "This thesis is arguable and identifies both the technique and the claim. The other options are factual statements or plot summaries." },
+      { text: "Dramatic irony occurs when:",
+        options: ["A character says the opposite of what the character means.", "The outcome contradicts what the reader expected.", "The audience knows something that a character does not.", "A symbol appears for the first time in the text."], answer: 2,
+        why: "Dramatic irony depends on the audience possessing knowledge that a character lacks." }
+    ],
+    [
+      { text: "A recurring image or pattern that develops a theme across a text is called a:",
+        options: ["Motif", "Simile", "Thesis", "Plot point"], answer: 0,
+        why: "A motif recurs and accumulates meaning. A simile is a comparison, and a thesis is an argument." },
+      { text: "The writer’s attitude toward the subject is known as:",
+        options: ["Mood", "Tone", "Imagery", "Theme"], answer: 1,
+        why: "Tone is the writer’s attitude. Mood is the feeling that the text creates in the reader." },
+      { text: "Situational irony occurs when:",
+        options: ["A narrator speaks sarcastically.", "The outcome contradicts what was expected.", "The audience knows more than a character does.", "A symbol appears early in the text."], answer: 1,
+        why: "Situational irony involves a gap between expectation and outcome." },
+      { text: "Who is Nami’s adoptive mother, whose memories recur throughout the Arlong Park arc?",
+        options: ["Nojiko", "Bellemere", "Makino", "Kaya"], answer: 1,
+        why: "Bellemere is Nami’s adoptive mother. Her memories recur throughout the arc, and Arlong’s violence against her shapes Nami’s motives." },
+      { text: "Which detail provides the best evidence for a claim that Arlong controls Cocoyashi Village through fear?",
+        options: ["The village has a harbor.", "The villagers pay Arlong and hesitate to resist his crew.", "Nami draws maps in her spare time.", "The sea is calm in the morning."], answer: 1,
+        why: "Evidence must relate directly to the claim. The villagers’ payments and hesitation show that fear, rather than consent, sustains Arlong’s control." }
+    ],
+    [
+      { text: "Which device makes a comparison using the words “like” or “as”?",
+        options: ["Metaphor", "Simile", "Personification", "Irony"], answer: 1,
+        why: "A simile is an explicit comparison that uses “like” or “as.” A metaphor makes the comparison without those words." },
+      { text: "Personification is best defined as:",
+        options: ["Exaggeration for effect", "A comparison using “like” or “as”", "Giving human qualities to nonhuman things", "The repetition of a particular image"], answer: 2,
+        why: "Personification attributes human characteristics to objects, animals, or ideas." },
+      { text: "In the Arlong Park arc, what does Nami’s map most likely symbolize?",
+        options: ["Her loyalty to Arlong", "The pirates’ wealth", "Her freedom and her dream of charting the world", "The harbor of Cocoyashi Village"], answer: 2,
+        why: "The map represents Nami’s skill and her ambition to chart the world, which Arlong attempts to control." },
+      { text: "Which statement best describes a thesis?",
+        options: ["A summary of the plot", "An arguable claim about the text", "A list of quotations", "A question that has no answer"], answer: 1,
+        why: "A thesis is an arguable claim that the rest of the analysis supports." },
+      { text: "Which sequence correctly orders the parts of a body paragraph?",
+        options: ["Analysis, evidence, claim", "Claim, evidence, analysis", "Evidence, claim, analysis", "Claim, analysis, evidence"], answer: 1,
+        why: "A body paragraph begins with a claim, presents evidence, and then explains the analysis that connects the evidence to the claim." }
+    ]
+  ];
+
+  let setIndex = 0;
+  const quizContainer = document.getElementById("quiz-questions");
+  const setLabel = document.getElementById("set-label");
+  const scoreEl = document.getElementById("score");
+  const checkBtn = document.getElementById("check-btn");
+  const resetBtn = document.getElementById("reset-btn");
+
+  function renderQuiz() {
+    quizContainer.innerHTML = "";
+    setLabel.textContent = "Set " + (setIndex + 1) + " of " + QUIZ_SETS.length;
+    QUIZ_SETS[setIndex].forEach(function (q, i) {
+      const card = document.createElement("div");
+      card.className = "quiz-card";
+
+      const fs = document.createElement("fieldset");
+      const legend = document.createElement("legend");
+      legend.textContent = (i + 1) + ". " + q.text;
+      fs.appendChild(legend);
+
+      q.options.forEach(function (opt, j) {
+        const label = document.createElement("label");
+        label.className = "choice";
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "set" + setIndex + "-q" + i;
+        input.value = String(j);
+        const span = document.createElement("span");
+        span.textContent = String.fromCharCode(65 + j) + ". " + opt;
+        label.appendChild(input);
+        label.appendChild(span);
+        fs.appendChild(label);
+      });
+
+      const fb = document.createElement("p");
+      fb.className = "feedback";
+      fb.id = "fb-" + i;
+      fb.setAttribute("aria-live", "polite");
+      fs.appendChild(fb);
+
+      card.appendChild(fs);
+      quizContainer.appendChild(card);
+    });
+    scoreEl.textContent = "";
+    checkBtn.disabled = false;
+  }
+
+  checkBtn.addEventListener("click", function () {
+    const set = QUIZ_SETS[setIndex];
+    let correct = 0;
+    let unanswered = 0;
+    set.forEach(function (q, i) {
+      const fb = document.getElementById("fb-" + i);
+      const selected = document.querySelector('input[name="set' + setIndex + '-q' + i + '"]:checked');
+      fb.className = "feedback";
+      if (!selected) {
+        unanswered++;
+        fb.textContent = "No answer selected.";
+        fb.classList.add("incorrect");
+        return;
+      }
+      if (parseInt(selected.value, 10) === q.answer) {
+        correct++;
+        fb.textContent = "Correct. " + q.why;
+        fb.classList.add("correct");
+      } else {
+        fb.textContent = "Incorrect. The correct answer is " + String.fromCharCode(65 + q.answer) + ". " + q.why;
+        fb.classList.add("incorrect");
+      }
+    });
+    scoreEl.textContent = unanswered
+      ? "Score: " + correct + " of " + set.length + ". Please answer every question to complete the set."
+      : "Score: " + correct + " of " + set.length + ". Answers are now final.";
+    if (!unanswered) {
+      document.querySelectorAll('#quiz input[type="radio"]').forEach(function (r) { r.disabled = true; });
+      checkBtn.disabled = true;
+    }
+  });
+
+  resetBtn.addEventListener("click", function () {
+    setIndex = (setIndex + 1) % QUIZ_SETS.length;
+    renderQuiz();
+  });
+
+  renderQuiz();
+
+  // Analysis checklist progress
+  const items = document.querySelectorAll(".check-item");
+  const progress = document.getElementById("progress");
+  const progressText = document.getElementById("progress-text");
+  function updateProgress() {
+    const done = Array.from(items).filter(function (i) { return i.checked; }).length;
+    progress.value = done;
+    progressText.textContent = done + " of " + items.length + " complete";
+  }
+  items.forEach(function (i) { i.addEventListener("change", updateProgress); });
+</script>
+
+</body>
+</html>
